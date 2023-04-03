@@ -39,8 +39,6 @@ const Gig = () => {
     }
   }, [isLoading]);
 
-  console.log(user);
-  // console.log(data);
   return (
     <div className="gig">
       {isLoading ? (

@@ -12,9 +12,6 @@ import orderRoute from "./routes/order.route.js";
 import reviewRoute from "./routes/review.route.js";
 import authRoute from "./routes/auth.route.js";
 
-const hostname = "0.0.0.0";
-const port = 3000;
-
 const app = express();
 dotenv.config();
 mongoose.set("strictQuery", true);
@@ -28,6 +25,7 @@ const connection = async () => {
   }
 };
 
+// app.use(cors({ origin: "http://localhost:3000", credentials: true }));
 app.use(cors({ origin: "http://localhost:3000", credentials: true }));
 app.use(express.json());
 app.use(cookieParser());
@@ -46,10 +44,20 @@ app.use((err, req, res, next) => {
   return res.status(errorStatus).send(errorMessage);
 });
 
-app.listen(port, hostname, () => {
+// const hostname = "0.0.0.0";
+// const port = 3000;
+const PORT = process.env.PORT || 8800;
+app.listen(PORT, () => {
   connection();
-  console.log("Backend server is running...");
+  console.log(`Backend server is running on port : ${PORT}`);
 });
+
+// const PORT = process.env.PORT || 5000;
+// app.listen(PORT, () => {
+//   connection();
+//   console.log(`Backend server is running on port : ${PORT}`);
+// });
+
 // app.listen(8800, () => {
 //   connection();
 //   console.log("Backend server is running...");
