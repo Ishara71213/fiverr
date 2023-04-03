@@ -84,7 +84,23 @@
         font-weight: 400;
       }
     }
-    button {
+    .activeBtn {
+      font-weight: 500;
+      //   font-size: 15px;
+      color: #1dbf73;
+      padding: 10px 20px;
+      border-radius: 5px;
+      border: 1px solid#1dbf73;
+      background-color: transparent;
+      cursor: pointer;
+
+      &:hover {
+        color: white;
+        background-color: #1dbf73;
+        border-color: #1dbf73;
+      }
+    }
+    .notActiveBtn {
       font-weight: 500;
       //   font-size: 15px;
       color: white;

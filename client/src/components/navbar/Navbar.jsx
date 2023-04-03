@@ -16,6 +16,7 @@ const Navbar = () => {
       await newRequest.post("/auth/logout");
       localStorage.setItem("currentUser", null);
       navigate("/");
+      window.location.reload();
     } catch (err) {
       console.log("err");
     }
@@ -64,7 +65,9 @@ const Navbar = () => {
           )}
           {!currentUser && (
             <Link className="link" to="/register">
-              <button>Join</button>
+              <button className={`${active ? "activeBtn" : "notActiveBtn"}`}>
+                Join
+              </button>
             </Link>
           )}
           {currentUser && (
